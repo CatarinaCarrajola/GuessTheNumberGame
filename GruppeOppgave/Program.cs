@@ -13,15 +13,15 @@ namespace GruppeOppgave
 
             int min = 1;
             int max = 1000;
-            int firstGuess = 500;
+            int guess = 500;
 
             bool keepPlaying = true;
             int counter = 0;
 
             while (keepPlaying)
             {
-                Console.WriteLine($"\nIs your secret number {firstGuess}?");
-                Console.WriteLine("Correct[K], Higher [H] or Lower [L]?");
+                Console.WriteLine($"\nIs your secret number {guess}?");
+                Console.WriteLine("\nCorrect[K], Higher [H] or Lower [L]?");
                 ConsoleKeyInfo input = Console.ReadKey();
 
                 counter++;
@@ -41,7 +41,7 @@ namespace GruppeOppgave
 
                     case ConsoleKey.H:
 
-                        int higherGuess = (max + firstGuess) / 2;
+                        int higherGuess = (max + guess) / 2;
 
                         Console.WriteLine($"\nIs your secret number {higherGuess}?");
                         input = Console.ReadKey();     
@@ -49,15 +49,15 @@ namespace GruppeOppgave
                         if (input.Key == ConsoleKey.H)
                         {
                             min = higherGuess;
-                            firstGuess = (min + max) / 2;
+                            guess = (min + max) / 2;
                            
                         }
 
                         else if (input.Key == ConsoleKey.L)
                         {
-                            min = firstGuess;
+                            min = guess;
                             max = higherGuess;
-                            firstGuess = (min + max) / 2;
+                            guess = (min + max) / 2;
                            
                         }
 
@@ -65,7 +65,7 @@ namespace GruppeOppgave
 
                     case ConsoleKey.L:
 
-                        int lowerGuess = (min + firstGuess) / 2;
+                        int lowerGuess = (min + guess) / 2;
 
                         Console.WriteLine($"\nIs your secret number {lowerGuess}?");
                         input = Console.ReadKey();
@@ -73,14 +73,14 @@ namespace GruppeOppgave
                         if (input.Key == ConsoleKey.L)
                         {
                             max = lowerGuess;
-                            firstGuess = (min + max) / 2;
+                            guess = (min + max) / 2;
                         }
 
                         else if (input.Key == ConsoleKey.H)
                         {
                             min = lowerGuess;
-                            max = firstGuess;
-                            firstGuess = (min + max) / 2;
+                            max = guess;
+                            guess = (min + max) / 2;
                         }
 
                         break;
