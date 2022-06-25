@@ -49,16 +49,14 @@ namespace GruppeOppgave
                         if (input.Key == ConsoleKey.H)
                         {
                             min = higherGuess;
-                            guess = (min + max) / 2;
-                           
+                            guess = (min + max) / 2;   
                         }
 
                         else if (input.Key == ConsoleKey.L)
                         {
                             min = guess;
                             max = higherGuess;
-                            guess = (min + max) / 2;
-                           
+                            guess = (min + max) / 2;   
                         }
 
                         break;
